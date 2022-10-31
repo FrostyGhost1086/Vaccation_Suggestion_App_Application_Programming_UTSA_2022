@@ -73,10 +73,12 @@ public class Vacation {
 		}
 		return toReturn;
 	}
+	
 	public void sortDestinations() {
 		//TODO: write entire function lol
 		
 	}
+	
 	public void calculateRankings() {
 		for(int i=0;i<destinations.size();i++) {
 			destinations.get(i).setRanking((safetyImportance*(100-destinations.get(i).getCrimeIndex())));

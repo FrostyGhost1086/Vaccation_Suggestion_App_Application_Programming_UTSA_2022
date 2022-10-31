@@ -5,6 +5,7 @@ public class Destination {
 	private String name;
 	@SuppressWarnings("unused")
 	private double crimeIndex;
+	
 	private double ranking;
 	public Destination(String name,double crimeIndex) {
 		this.name = name;

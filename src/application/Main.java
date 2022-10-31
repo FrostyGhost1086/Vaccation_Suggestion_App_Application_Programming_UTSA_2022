@@ -22,6 +22,7 @@ public class Main extends Application {
 		}
 	}
 	public static void main(String[] args) {
+		
 		Vacation test = new Vacation("Tester");
 		
 		test.setSafetyImportance(.55);
