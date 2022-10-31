@@ -1,5 +1,8 @@
 package application;
 
+import java.io.File;
+
+import application.model.*;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
@@ -19,6 +22,16 @@ public class Main extends Application {
 		}
 	}
 	public static void main(String[] args) {
+		Vacation test = new Vacation("Tester");
+		
+		test.setSafetyImportance(.55);
+		test.calculateRankings();
+		test.saveVacation();
+		
+		Vacation test2 = new Vacation(new File("./Data/SavedVaccations/Tester.csv"));
+		
+		System.out.println(test2);
+		
 		launch(args);
 	}
 }

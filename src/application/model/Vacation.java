@@ -4,7 +4,12 @@ import java.util.*;
 import java.io.*;
 public class Vacation {
 	private String name;
-	ArrayList<Destination> destinations = new ArrayList<Destination>();
+	private ArrayList<Destination> destinations = new ArrayList<Destination>();
+	
+	//Used to calculate ranking
+	private double safetyImportance;
+	
+	
 	public Vacation(String name) {
 		this.name = name;
 		destinations = defaultDestinations();
@@ -15,7 +20,7 @@ public class Vacation {
 	}
 	public void saveVacation() {
 		try {
-			File save = new File("./Data/"+this.name+".csv");
+			File save = new File("./Data/SavedVaccations/"+this.name+".csv");
 			save.createNewFile();
 			FileWriter wr = new FileWriter(save);
 			for(int i=0;i<destinations.size();i++) {
@@ -62,7 +67,26 @@ public class Vacation {
 		return dest;
 	}
 	public String toString() {
-		return String.format("%s - %d elements",this.name,this.destinations.size());
+		String toReturn = String.format("%s - %d elements\n",this.name,this.destinations.size());
+		for(int i=0;i<this.destinations.size();i++) {
+			toReturn = toReturn+"\t"+destinations.get(i).toString();
+		}
+		return toReturn;
+	}
+	public void sortDestinations() {
+		//TODO: write entire function lol
+		
+	}
+	public void calculateRankings() {
+		for(int i=0;i<destinations.size();i++) {
+			destinations.get(i).setRanking((safetyImportance*(100-destinations.get(i).getCrimeIndex())));
+		}
+	}
+	public double getSafetyImportance() {
+		return safetyImportance;
+	}
+	public void setSafetyImportance(double safetyImportance) {
+		this.safetyImportance = safetyImportance;
 	}
 	
 }
