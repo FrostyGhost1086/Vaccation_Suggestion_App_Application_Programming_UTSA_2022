@@ -76,6 +76,19 @@ public class Vacation {
 	
 	public void sortDestinations() {
 		//TODO: write entire function lol
+		while(isSortedList(this.destinations) != true) {
+			
+		}
+	}
+	
+	private boolean isSortedList(ArrayList<Destination> d) {
+		
+		for(int i=1;i<d.size();i++) {
+			if(d.get(i-1).getRanking()>=d.get(i).getRanking()) {
+				return false;
+			}
+		}
+		return true;
 		
 	}
 	
